@@ -1,0 +1,64 @@
+#!/usr/bin/env php
+<?php
+
+use Cron\Command;
+use Cron\Execution\Process\Processor;
+use Cron\Help\Help;
+use Cron\Job\Listing as JobListing;
+use Laminas\Mvc\Application as LaminasApplication;
+use Laminas\Stdlib\ArrayUtils;
+
+require $_composer_autoload_path ?? __DIR__ . '/../../../vendor/autoload.php';
+
+set_time_limit(0);
+
+$appConfig = require 'config/application.config.php';
+
+if (file_exists('config/development.config.php'))
+{
+	$appConfig = ArrayUtils::merge($appConfig, require 'config/development.config.php');
+}
+
+$app       = LaminasApplication::init($appConfig);
+$config    = $app->getConfig();
+$container = $app->getServiceManager();
+
+if (
+	($config['cron']['enabled'] ?? null) === null
+	|| ($config['cron']['jobs'] ?? null) === null
+)
+{
+	echo 'Config array key "cron" and all mandatory data (cron.enabled, cron.jobs) has to be set';
+	exit(1);
+}
+
+$command = $argv[1] ?? 'help';
+
+const COMMANDS = [
+	'help'    => Help::class,
+	'process' => Processor::class,
+	'list'    => JobListing::class,
+];
+
+if (!($commandExecutor = COMMANDS[$command] ?? null))
+{
+	$commandExecutor = Help::class;
+}
+
+try
+{
+	/**
+	 * @var Command $executor
+	 */
+	$executor = $container->get($commandExecutor);
+
+	$executor->execute();
+
+	exit(0);
+}
+catch (Throwable $ex)
+{
+	error_log($ex->getMessage());
+}
+
+exit(1);

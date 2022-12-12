@@ -1,0 +1,35 @@
+{
+	"name": "leuchtdiode/laminas-cron",
+	"description": "Laminas module for cron execution",
+	"type": "library",
+	"license": "MIT",
+	"homepage": "https://try2catch.com",
+	"authors": [
+		{
+			"name": "Alex Schloegl",
+			"email": "alex@try2catch.com",
+			"homepage": "https://try2catch.com",
+			"role": "Developer"
+		}
+	],
+	"keywords": [
+		"Laminas",
+		"Module",
+		"Cron"
+	],
+	"bin": [
+		"bin/laminas-cron"
+	],
+	"require": {
+		"php": "^8.1",
+		"leuchtdiode/laminas-common": "^2.0",
+		"ramsey/uuid-doctrine": "^1.8",
+		"dragonmantank/cron-expression": "^3.3",
+		"amphp/process": "^1.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Cron\\": "src/"
+		}
+	}
+}
