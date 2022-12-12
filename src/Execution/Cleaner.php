@@ -26,10 +26,10 @@ class Cleaner
 
 			$expr = $qb->expr();
 
-			$threshold = $cron->getThreshold();
+			$cleanUpThreshold = $cron->getCleanUpThreshold();
 
 			$maxStartTime = new DateTime();
-			$maxStartTime->modify('-' . $threshold->getMinutes() . ' minute');
+			$maxStartTime->modify('-' . $cleanUpThreshold->getMinutes() . ' minute');
 
 			$qb
 				->delete()

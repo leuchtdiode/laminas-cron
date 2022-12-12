@@ -29,7 +29,7 @@ class Listing implements Command
 			Cli::writeLine(str_repeat('*', 100), 2);
 
 			$executionPlan = $cron->getExecutionPlan();
-			$threshold     = $cron->getThreshold();
+			$cleanUpThreshold     = $cron->getCleanUpThreshold();
 
 			Cli::writeLine(
 				sprintf("%s %s (%s)",
@@ -59,7 +59,7 @@ class Listing implements Command
 			$this->labeledInfo('Author:', $cron->getAuthor() ?? '-');
 			$this->labeledInfo(
 				'Clean up threshold:',
-				sprintf('%s (%s)', $threshold->getMinutes(), $threshold->getHumanReadable())
+				sprintf('%s (%s)', $cleanUpThreshold->getMinutes(), $cleanUpThreshold->getHumanReadable())
 			);
 		}
 	}

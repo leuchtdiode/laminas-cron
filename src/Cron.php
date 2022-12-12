@@ -16,7 +16,7 @@ class Cron
 	private Plan      $executionPlan;
 	private string    $command;
 	private ?string   $author      = null;
-	private Threshold $threshold;
+	private Threshold $cleanUpThreshold;
 
 	/**
 	 * @var string[]
@@ -31,14 +31,14 @@ class Cron
 	public function asArray(): array
 	{
 		return [
-			'description'   => $this->description,
-			'timeout'       => $this->timeout,
-			'enabled'       => $this->enabled,
-			'executionPlan' => $this->executionPlan->asArray(),
-			'command'       => $this->command,
-			'arguments'     => $this->arguments,
-			'author'        => $this->author,
-			'threshold'     => $this->threshold->asArray(),
+			'description'      => $this->description,
+			'timeout'          => $this->timeout,
+			'enabled'          => $this->enabled,
+			'executionPlan'    => $this->executionPlan->asArray(),
+			'command'          => $this->command,
+			'arguments'        => $this->arguments,
+			'author'           => $this->author,
+			'cleanUpThreshold' => $this->cleanUpThreshold->asArray(),
 		];
 	}
 
@@ -54,8 +54,8 @@ class Cron
 			->setCommand($data['command'])
 			->setArguments($data['arguments'] ?? [])
 			->setAuthor($data['author'] ?? [])
-			->setThreshold(
-				Threshold::fromArray($data['threshold'])
+			->setCleanUpThreshold(
+				Threshold::fromArray($data['cleanUpThreshold'])
 			);
 	}
 
@@ -148,14 +148,14 @@ class Cron
 		return $this;
 	}
 
-	public function getThreshold(): Threshold
+	public function getCleanUpThreshold(): Threshold
 	{
-		return $this->threshold;
+		return $this->cleanUpThreshold;
 	}
 
-	public function setThreshold(Threshold $threshold): Cron
+	public function setCleanUpThreshold(Threshold $cleanUpThreshold): Cron
 	{
-		$this->threshold = $threshold;
+		$this->cleanUpThreshold = $cleanUpThreshold;
 		return $this;
 	}
 }
