@@ -5,6 +5,7 @@ use Cron\Command;
 use Cron\Execution\Process\Processor;
 use Cron\Help\Help;
 use Cron\Job\Listing as JobListing;
+use Cron\Wiki\Synchronize as WikiSynchronize;
 use Laminas\Mvc\Application as LaminasApplication;
 use Laminas\Stdlib\ArrayUtils;
 
@@ -38,6 +39,7 @@ const COMMANDS = [
 	'help'    => Help::class,
 	'process' => Processor::class,
 	'list'    => JobListing::class,
+	'wiki'    => WikiSynchronize::class,
 ];
 
 if (!($commandExecutor = COMMANDS[$command] ?? null))
