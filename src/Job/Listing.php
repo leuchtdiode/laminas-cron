@@ -57,6 +57,7 @@ class Listing implements Command
 			);
 			$this->labeledInfo('Command:', $cron->getExecCommand());
 			$this->labeledInfo('Author:', $cron->getAuthor() ?? '-');
+			$this->labeledInfo('Escalation:', $cron->getEscalation() ?? '-');
 			$this->labeledInfo(
 				'Clean up threshold:',
 				sprintf('%s (%s)', $cleanUpThreshold->getMinutes(), $cleanUpThreshold->getHumanReadable())

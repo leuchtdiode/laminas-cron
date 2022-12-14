@@ -5,6 +5,7 @@ namespace Cron;
 
 use Cron\Execution\Plan;
 use Cron\Execution\Threshold;
+use Cron\Wiki\Job;
 
 class Cron
 {
@@ -16,7 +17,9 @@ class Cron
 	private Plan      $executionPlan;
 	private string    $command;
 	private ?string   $author      = null;
+	private ?string   $escalation  = null;
 	private Threshold $cleanUpThreshold;
+	private ?Job      $wiki        = null;
 
 	/**
 	 * @var string[]
@@ -38,7 +41,9 @@ class Cron
 			'command'          => $this->command,
 			'arguments'        => $this->arguments,
 			'author'           => $this->author,
+			'escalation'       => $this->escalation,
 			'cleanUpThreshold' => $this->cleanUpThreshold->asArray(),
+			'wiki'             => $this->wiki?->asArray(),
 		];
 	}
 
@@ -53,9 +58,15 @@ class Cron
 			)
 			->setCommand($data['command'])
 			->setArguments($data['arguments'] ?? [])
-			->setAuthor($data['author'] ?? [])
+			->setAuthor($data['author'] ?? null)
+			->setEscalation($data['escalation'] ?? null)
 			->setCleanUpThreshold(
 				Threshold::fromArray($data['cleanUpThreshold'])
+			)
+			->setWiki(
+				($wiki = $data['wiki'] ?? null)
+					? Job::fromArray($wiki)
+					: null
 			);
 	}
 
@@ -148,6 +159,17 @@ class Cron
 		return $this;
 	}
 
+	public function getEscalation(): ?string
+	{
+		return $this->escalation;
+	}
+
+	public function setEscalation(?string $escalation): Cron
+	{
+		$this->escalation = $escalation;
+		return $this;
+	}
+
 	public function getCleanUpThreshold(): Threshold
 	{
 		return $this->cleanUpThreshold;
@@ -156,6 +178,17 @@ class Cron
 	public function setCleanUpThreshold(Threshold $cleanUpThreshold): Cron
 	{
 		$this->cleanUpThreshold = $cleanUpThreshold;
+		return $this;
+	}
+
+	public function getWiki(): ?Job
+	{
+		return $this->wiki;
+	}
+
+	public function setWiki(?Job $wiki): Cron
+	{
+		$this->wiki = $wiki;
 		return $this;
 	}
 }

@@ -15,6 +15,7 @@ class Help implements Command
 		$this->command('help', 'Shows this help');
 		$this->command('process', 'Process jobs (should be executed as cron every minute)');
 		$this->command('list', 'List all configured jobs');
+		$this->command('wiki', 'Synchronize job documentation(s) to WIKI');
 	}
 
 	private function command(string $command, string $description)

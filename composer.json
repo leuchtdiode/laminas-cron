@@ -27,6 +27,9 @@
 		"dragonmantank/cron-expression": "^3.3",
 		"amphp/process": "^1.1"
 	},
+	"suggest": {
+		"laminas/laminas-xmlrpc": "Mandatory for WIKI sync"
+	},
 	"autoload": {
 		"psr-4": {
 			"Cron\\": "src/"
