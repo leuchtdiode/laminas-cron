@@ -54,7 +54,7 @@ class Processor implements Command
 		{
 			$cron = Cron::fromArray($cron);
 
-			if (!$cron->shouldExecute())
+			if (!$cron->isEnabled() || !$cron->shouldExecute())
 			{
 				continue;
 			}
