@@ -18,6 +18,9 @@ class Entity implements DbEntity
 	private UuidInterface $id;
 
 	#[ORM\Column(type: "string", nullable: false)]
+	private string $host;
+
+	#[ORM\Column(type: "string", nullable: false)]
 	private string $job;
 
 	#[ORM\Column(type: "string", nullable: false)]
@@ -45,6 +48,16 @@ class Entity implements DbEntity
 	public function setId(UuidInterface $id): void
 	{
 		$this->id = $id;
+	}
+
+	public function getHost(): string
+	{
+		return $this->host;
+	}
+
+	public function setHost(string $host): void
+	{
+		$this->host = $host;
 	}
 
 	public function getJob(): string

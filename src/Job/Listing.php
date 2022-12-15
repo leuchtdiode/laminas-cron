@@ -20,6 +20,7 @@ class Listing implements Command
 		$cronConfig = $this->config['cron'];
 
 		$generallyEnabled = $cronConfig['enabled'];
+		$jobsOnly         = $cronConfig['jobsOnly'] ?? [];
 
 		foreach ($cronConfig['jobs'] as $key => $cron)
 		{
@@ -28,8 +29,8 @@ class Listing implements Command
 			Cli::writeLine('');
 			Cli::writeLine(str_repeat('*', 100), 2);
 
-			$executionPlan = $cron->getExecutionPlan();
-			$cleanUpThreshold     = $cron->getCleanUpThreshold();
+			$executionPlan    = $cron->getExecutionPlan();
+			$cleanUpThreshold = $cron->getCleanUpThreshold();
 
 			Cli::writeLine(
 				sprintf("%s %s (%s)",
@@ -40,15 +41,11 @@ class Listing implements Command
 				2
 			);
 
+			$enabledByJobsOnly = !$jobsOnly || in_array($key, $jobsOnly);
+
 			$this->labeledInfo(
 				'Active:',
-				$cron->isEnabled() && $generallyEnabled
-					? Cli::colorGreen('yes')
-					: (
-				!$generallyEnabled
-					? Cli::colorRed('no (generally disabled)')
-					: Cli::colorRed('no')
-				)
+				$this->getActiveLabel($cron, $generallyEnabled, $enabledByJobsOnly)
 			);
 
 			$this->labeledInfo(
@@ -63,6 +60,26 @@ class Listing implements Command
 				sprintf('%s (%s)', $cleanUpThreshold->getMinutes(), $cleanUpThreshold->getHumanReadable())
 			);
 		}
+	}
+
+	private function getActiveLabel(Cron $cron, bool $generallyEnabled, bool $enabledByJobsOnly): string
+	{
+		if ($cron->isEnabled() && $generallyEnabled && $enabledByJobsOnly)
+		{
+			return Cli::colorGreen('yes');
+		}
+
+		if (!$generallyEnabled)
+		{
+			return Cli::colorRed('no (generally disabled)');
+		}
+
+		if (!$enabledByJobsOnly)
+		{
+			return Cli::colorRed('no (excluded by cron.jobsOnly)');
+		}
+
+		return Cli::colorRed('no');
 	}
 
 	private function labeledInfo(string $command, string $description)

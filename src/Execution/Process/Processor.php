@@ -13,6 +13,7 @@ use Cron\Db\Execution\Repository;
 use Cron\Db\Execution\Filter as ExecutionDbFilter;
 use Cron\Execution\Cleaner;
 use Cron\Execution\Status;
+use Cron\Host;
 use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\NonUniqueResultException;
@@ -27,7 +28,8 @@ class Processor implements Command
 		private readonly array $config,
 		private readonly Repository $repository,
 		private readonly EntityManager $entityManager,
-		private readonly Cleaner $cleaner
+		private readonly Cleaner $cleaner,
+		private readonly Host $host
 	)
 	{
 	}
@@ -48,22 +50,26 @@ class Processor implements Command
 		// clean up every hour after jobs finished
 		$shouldCleanUp = ((int)(new DateTime())->format('i')) === 0;
 
+		$jobsOnly = $cronConfig['jobsOnly'] ?? [];
+
 		$processBags = [];
 
 		foreach (($cronConfig['jobs'] ?? []) as $key => $cron)
 		{
 			$cron = Cron::fromArray($cron);
 
-			if (!$cron->isEnabled() || !$cron->shouldExecute())
+			$enabled = $cron->isEnabled() && (!$jobsOnly || in_array($key, $jobsOnly));
+
+			if (!$enabled || !$cron->shouldExecute())
 			{
 				continue;
 			}
 
 			$alreadyRunning = $this->repository->countWithFilter(
-				FilterChain::create()
-					->addFilter(ExecutionDbFilter\Job::is($key))
-					->addFilter(ExecutionDbFilter\Status::is(Status::RUNNING))
-			) > 0;
+					FilterChain::create()
+						->addFilter(ExecutionDbFilter\Job::is($key))
+						->addFilter(ExecutionDbFilter\Status::is(Status::RUNNING))
+				) > 0;
 
 			if ($alreadyRunning)
 			{
@@ -71,6 +77,7 @@ class Processor implements Command
 			}
 
 			$entity = new ExecutionEntity();
+			$entity->setHost($this->host->get());
 			$entity->setJob($key);
 
 			$processBags[] = new ProcessBag(

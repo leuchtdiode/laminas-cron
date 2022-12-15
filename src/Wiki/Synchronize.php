@@ -5,13 +5,15 @@ namespace Cron\Wiki;
 
 use Cron\Command;
 use Cron\Cron;
+use Cron\Host;
 use Exception;
 
 class Synchronize implements Command
 {
 	public function __construct(
 		private readonly array $config,
-		private readonly Client $client
+		private readonly Client $client,
+		private readonly Host $host
 	)
 	{
 	}
@@ -58,7 +60,11 @@ class Synchronize implements Command
 			$text .= sprintf("|Execution |%s minutes (%s) |\n",
 				$executionPlan->getMachine(),
 				$executionPlan->getHuman());
-			$text .= sprintf("|Host |%s |\n", gethostname() ?? '?');
+			$text .= sprintf(
+				"|Host |%s |\n",
+				$this->host->get()
+					?: '?'
+			);
 			$text .= sprintf("|Command |%s |\n", $cron->getExecCommand());
 			$text .= sprintf("|Timeout |%s |\n", $cron->getTimeout() . ' minutes');
 			$text .= sprintf(
