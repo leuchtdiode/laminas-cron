@@ -20,7 +20,8 @@ class Synchronize implements Command
 
 	public function execute(): void
 	{
-		$wikiConfig = $this->config['cron']['wiki'] ?? null;
+		$cronConfig = $this->config['cron'];
+		$wikiConfig = $cronConfig['wiki'] ?? null;
 
 		if (!$wikiConfig)
 		{
@@ -36,18 +37,27 @@ class Synchronize implements Command
 
 		$handledIds = [];
 
+		$generallyEnabled = $cronConfig['enabled'];
+		$jobsOnly         = $cronConfig['jobsOnly'] ?? [];
+
+		$host = $this->host->get();
+
+		$namespace = $pagesConfig['namespace'] . ':' . $host;
+
 		foreach ($this->config['cron']['jobs'] as $key => $cron)
 		{
 			$cron = Cron::fromArray($cron);
 
-			if (!$cron->isEnabled())
+			$enabled = $generallyEnabled && $cron->isEnabled() && (!$jobsOnly || in_array($key, $jobsOnly));
+
+			if (!$enabled)
 			{
 				continue;
 			}
 
-			$text = sprintf("====== Task " . $key . " ======\n\n");
+			$text = sprintf("====== Task " . $key . " (" . $host . ")======\n\n");
 
-			$id = $pagesConfig['namespace'] . ':' . $key;
+			$id = $namespace . ':' . $key;
 
 			$executionPlan    = $cron->getExecutionPlan();
 			$cleanUpThreshold = $cron->getCleanUpThreshold();
@@ -62,7 +72,7 @@ class Synchronize implements Command
 				$executionPlan->getHuman());
 			$text .= sprintf(
 				"|Host |%s |\n",
-				$this->host->get()
+				$host
 					?: '?'
 			);
 			$text .= sprintf("|Command |%s |\n", $cron->getExecCommand());
@@ -100,7 +110,7 @@ class Synchronize implements Command
 		}
 
 		// remove orphans in namespace
-		$pagelistResponse = $this->client->call('dokuwiki.getPagelist', [ $pagesConfig['namespace'], [] ]);
+		$pagelistResponse = $this->client->call('dokuwiki.getPagelist', [ $namespace, [] ]);
 
 		if (!$pagelistResponse || !is_array($pagelistResponse))
 		{

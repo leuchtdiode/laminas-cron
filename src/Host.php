@@ -5,8 +5,16 @@ namespace Cron;
 
 class Host
 {
+	public function __construct(
+		private readonly array $config
+	)
+	{
+	}
+
 	public function get(): string
 	{
-		return gethostname() ?? '';
+		return ($this->config['cron']['host'] ?? null)
+			?? gethostname()
+			?? '';
 	}
 }
