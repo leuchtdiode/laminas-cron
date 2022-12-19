@@ -69,6 +69,7 @@ class Processor implements Command
 					FilterChain::create()
 						->addFilter(ExecutionDbFilter\Job::is($key))
 						->addFilter(ExecutionDbFilter\Status::is(Status::RUNNING))
+						->addFilter(ExecutionDbFilter\Host::is($this->host->get()))
 				) > 0;
 
 			if ($alreadyRunning)
