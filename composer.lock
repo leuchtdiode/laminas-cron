@@ -344,16 +344,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.14.1",
+            "version": "1.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "9e034d7a70032d422169f27d8759e8d84abb4f51"
+                "reference": "ad785217c1e9555a7d6c6c8c9f406395a5e2882b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/9e034d7a70032d422169f27d8759e8d84abb4f51",
-                "reference": "9e034d7a70032d422169f27d8759e8d84abb4f51",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/ad785217c1e9555a7d6c6c8c9f406395a5e2882b",
+                "reference": "ad785217c1e9555a7d6c6c8c9f406395a5e2882b",
                 "shasum": ""
             },
             "require": {
@@ -414,9 +414,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
-                "source": "https://github.com/doctrine/annotations/tree/1.14.1"
+                "source": "https://github.com/doctrine/annotations/tree/1.14.2"
             },
-            "time": "2022-12-12T12:46:12+00:00"
+            "time": "2022-12-15T06:48:22+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -680,16 +680,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.5.1",
+            "version": "3.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "f38ee8aaca2d58ee88653cb34a6a3880c23f38a5"
+                "reference": "63e513cebbbaf96a6795e5c5ee34d205831bfc85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f38ee8aaca2d58ee88653cb34a6a3880c23f38a5",
-                "reference": "f38ee8aaca2d58ee88653cb34a6a3880c23f38a5",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/63e513cebbbaf96a6795e5c5ee34d205831bfc85",
+                "reference": "63e513cebbbaf96a6795e5c5ee34d205831bfc85",
                 "shasum": ""
             },
             "require": {
@@ -702,16 +702,16 @@
                 "psr/log": "^1|^2|^3"
             },
             "require-dev": {
-                "doctrine/coding-standard": "10.0.0",
-                "jetbrains/phpstorm-stubs": "2022.2",
-                "phpstan/phpstan": "1.8.10",
+                "doctrine/coding-standard": "11.0.0",
+                "jetbrains/phpstorm-stubs": "2022.3",
+                "phpstan/phpstan": "1.9.2",
                 "phpstan/phpstan-strict-rules": "^1.4",
-                "phpunit/phpunit": "9.5.25",
-                "psalm/plugin-phpunit": "0.17.0",
+                "phpunit/phpunit": "9.5.27",
+                "psalm/plugin-phpunit": "0.18.4",
                 "squizlabs/php_codesniffer": "3.7.1",
                 "symfony/cache": "^5.4|^6.0",
                 "symfony/console": "^4.4|^5.4|^6.0",
-                "vimeo/psalm": "4.29.0"
+                "vimeo/psalm": "4.30.0"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -771,7 +771,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.5.1"
+                "source": "https://github.com/doctrine/dbal/tree/3.5.2"
             },
             "funding": [
                 {
@@ -787,7 +787,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-24T07:26:18+00:00"
+            "time": "2022-12-19T08:17:34+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -900,39 +900,39 @@
         },
         {
             "name": "doctrine/doctrine-module",
-            "version": "5.2.1",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineModule.git",
-                "reference": "79994578c93037d3c41f9fc3de25f3d2962a4188"
+                "reference": "ad346200568aa095c58e2866eb1e2be0e3c3083f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineModule/zipball/79994578c93037d3c41f9fc3de25f3d2962a4188",
-                "reference": "79994578c93037d3c41f9fc3de25f3d2962a4188",
+                "url": "https://api.github.com/repos/doctrine/DoctrineModule/zipball/ad346200568aa095c58e2866eb1e2be0e3c3083f",
+                "reference": "ad346200568aa095c58e2866eb1e2be0e3c3083f",
                 "shasum": ""
             },
             "require": {
-                "container-interop/container-interop": "^1.2.0",
-                "doctrine/annotations": "^1.13.2",
-                "doctrine/cache": "^1.12.1",
-                "doctrine/collections": "^1.6.8",
-                "doctrine/doctrine-laminas-hydrator": "^3.0.0",
-                "doctrine/event-manager": "^1.1.1",
-                "doctrine/inflector": "^2.0.4",
-                "doctrine/persistence": "^2.3.0 || ^3.0.0",
-                "laminas/laminas-authentication": "^2.9.0",
-                "laminas/laminas-cache": "^3.1.2",
-                "laminas/laminas-eventmanager": "^3.4.0",
-                "laminas/laminas-form": "^3.1.1",
-                "laminas/laminas-modulemanager": "^2.11.0",
-                "laminas/laminas-mvc": "^3.3.0",
-                "laminas/laminas-paginator": "^2.12.2",
-                "laminas/laminas-servicemanager": "^3.10.0",
-                "laminas/laminas-stdlib": "^3.7.1",
-                "laminas/laminas-validator": "^2.16.0",
-                "php": "^7.4 || ~8.0.0 || ~8.1.0",
-                "symfony/console": "^5.4.3 || ^6.0.3"
+                "doctrine/annotations": "^1.13.3",
+                "doctrine/cache": "^1.13.0",
+                "doctrine/collections": "^1.8.0",
+                "doctrine/doctrine-laminas-hydrator": "^3.2.0",
+                "doctrine/event-manager": "^1.2.0",
+                "doctrine/inflector": "^2.0.6",
+                "doctrine/persistence": "^2.5.5 || ^3.1.0",
+                "laminas/laminas-authentication": "^2.12.0",
+                "laminas/laminas-cache": "^3.6.0",
+                "laminas/laminas-eventmanager": "^3.5.0",
+                "laminas/laminas-form": "^3.4.1",
+                "laminas/laminas-modulemanager": "^2.12.0",
+                "laminas/laminas-mvc": "^3.3.5",
+                "laminas/laminas-paginator": "^2.13.0",
+                "laminas/laminas-servicemanager": "^3.17.0",
+                "laminas/laminas-stdlib": "^3.13.0",
+                "laminas/laminas-validator": "^2.25.0",
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0",
+                "psr/container": "^1.1.2",
+                "symfony/console": "^5.4.16 || ^6.2.1"
             },
             "conflict": {
                 "doctrine/orm": "2.12.0"
@@ -941,22 +941,21 @@
                 "laminas/laminas-cache-storage-implementation": "1.0.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^9.0.0",
-                "doctrine/mongodb-odm": "^2.3.0",
-                "doctrine/orm": "^2.11.1",
+                "doctrine/coding-standard": "^9.0.2",
+                "doctrine/mongodb-odm": "^2.4.2",
+                "doctrine/orm": "^2.13.4",
                 "jangregor/phpstan-prophecy": "^1.0.0",
                 "laminas/laminas-cache-storage-adapter-blackhole": "^2.0.0",
-                "laminas/laminas-cache-storage-adapter-memory": "^2.0.0",
-                "laminas/laminas-i18n": "^2.13.0",
-                "laminas/laminas-log": "^2.15.0",
-                "laminas/laminas-serializer": "^2.12.0",
-                "laminas/laminas-session": "^2.12.0",
-                "phpspec/prophecy-phpunit": "^2.0.1",
-                "phpstan/phpstan": "^1.4.6",
-                "phpstan/phpstan-phpunit": "^1.0.0",
-                "phpunit/phpunit": "^9.5.13",
+                "laminas/laminas-cache-storage-adapter-memory": "^2.1.0",
+                "laminas/laminas-i18n": "^2.17.0",
+                "laminas/laminas-log": "^2.15.3",
+                "laminas/laminas-serializer": "^2.13.0",
+                "laminas/laminas-session": "^2.13.0",
+                "phpstan/phpstan": "^1.9.2",
+                "phpstan/phpstan-phpunit": "^1.3.0",
+                "phpunit/phpunit": "^9.5.27",
                 "predis/predis": "^1.1.10",
-                "vimeo/psalm": "^4.20.0"
+                "vimeo/psalm": "^5.0"
             },
             "suggest": {
                 "doctrine/data-fixtures": "Data Fixtures if you want to generate test data or bootstrap data for your deployments"
@@ -1015,7 +1014,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineModule/issues",
-                "source": "https://github.com/doctrine/DoctrineModule/tree/5.2.1"
+                "source": "https://github.com/doctrine/DoctrineModule/tree/5.3.0"
             },
             "funding": [
                 {
@@ -1031,7 +1030,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-28T09:04:39+00:00"
+            "time": "2022-12-12T15:24:40+00:00"
         },
         {
             "name": "doctrine/doctrine-orm-module",
@@ -1413,31 +1412,33 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.2.3",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "c268e882d4dbdd85e36e4ad69e02dc284f89d229"
+                "reference": "39ab8fcf5a51ce4b85ca97c7a7d033eb12831124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/c268e882d4dbdd85e36e4ad69e02dc284f89d229",
-                "reference": "c268e882d4dbdd85e36e4ad69e02dc284f89d229",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/39ab8fcf5a51ce4b85ca97c7a7d033eb12831124",
+                "reference": "39ab8fcf5a51ce4b85ca97c7a7d033eb12831124",
                 "shasum": ""
             },
             "require": {
+                "doctrine/deprecations": "^1.0",
                 "php": "^7.1 || ^8.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^9.0",
+                "doctrine/coding-standard": "^9 || ^10",
                 "phpstan/phpstan": "^1.3",
                 "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
-                "vimeo/psalm": "^4.11"
+                "psalm/plugin-phpunit": "^0.18.3",
+                "vimeo/psalm": "^4.11 || ^5.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
+                    "Doctrine\\Common\\Lexer\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1469,7 +1470,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/lexer/issues",
-                "source": "https://github.com/doctrine/lexer/tree/1.2.3"
+                "source": "https://github.com/doctrine/lexer/tree/2.1.0"
             },
             "funding": [
                 {
@@ -1485,55 +1486,56 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-28T11:07:21+00:00"
+            "time": "2022-12-14T08:49:07+00:00"
         },
         {
             "name": "doctrine/orm",
-            "version": "2.13.4",
+            "version": "2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "a5a6cc6630ce497290396d5f206887227820a634"
+                "reference": "f82485e651763fbd1b34879726f4d3b91c358bd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/a5a6cc6630ce497290396d5f206887227820a634",
-                "reference": "a5a6cc6630ce497290396d5f206887227820a634",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/f82485e651763fbd1b34879726f4d3b91c358bd9",
+                "reference": "f82485e651763fbd1b34879726f4d3b91c358bd9",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2",
                 "doctrine/cache": "^1.12.1 || ^2.1.1",
-                "doctrine/collections": "^1.5",
+                "doctrine/collections": "^1.5 || ^2.0",
                 "doctrine/common": "^3.0.3",
                 "doctrine/dbal": "^2.13.1 || ^3.2",
                 "doctrine/deprecations": "^0.5.3 || ^1",
-                "doctrine/event-manager": "^1.1",
+                "doctrine/event-manager": "^1.2 || ^2",
                 "doctrine/inflector": "^1.4 || ^2.0",
                 "doctrine/instantiator": "^1.3",
-                "doctrine/lexer": "^1.2.3",
+                "doctrine/lexer": "^1.2.3 || ^2",
                 "doctrine/persistence": "^2.4 || ^3",
                 "ext-ctype": "*",
                 "php": "^7.1 || ^8.0",
                 "psr/cache": "^1 || ^2 || ^3",
-                "symfony/console": "^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/console": "^4.2 || ^5.0 || ^6.0",
                 "symfony/polyfill-php72": "^1.23",
                 "symfony/polyfill-php80": "^1.16"
             },
             "conflict": {
-                "doctrine/annotations": "<1.13 || >= 2.0"
+                "doctrine/annotations": "<1.13 || >= 3.0"
             },
             "require-dev": {
-                "doctrine/annotations": "^1.13",
-                "doctrine/coding-standard": "^9.0.2 || ^10.0",
+                "doctrine/annotations": "^1.13 || ^2",
+                "doctrine/coding-standard": "^9.0.2 || ^11.0",
                 "phpbench/phpbench": "^0.16.10 || ^1.0",
-                "phpstan/phpstan": "~1.4.10 || 1.9.2",
+                "phpstan/phpstan": "~1.4.10 || 1.9.4",
                 "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
                 "psr/log": "^1 || ^2 || ^3",
                 "squizlabs/php_codesniffer": "3.7.1",
                 "symfony/cache": "^4.4 || ^5.4 || ^6.0",
+                "symfony/var-exporter": "^4.4 || ^5.4 || ^6.2",
                 "symfony/yaml": "^3.4 || ^4.0 || ^5.0 || ^6.0",
-                "vimeo/psalm": "4.30.0"
+                "vimeo/psalm": "4.30.0 || 5.3.0"
             },
             "suggest": {
                 "ext-dom": "Provides support for XSD validation for XML mapping files",
@@ -1583,22 +1585,22 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/2.13.4"
+                "source": "https://github.com/doctrine/orm/tree/2.14.0"
             },
-            "time": "2022-11-20T18:53:31+00:00"
+            "time": "2022-12-19T21:51:58+00:00"
         },
         {
             "name": "doctrine/persistence",
-            "version": "3.1.0",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "2a9c70a5e21f8968c5a46b79f819ea52f322080b"
+                "reference": "b44d128311af55275dbed6a4558ca59a2b9f9387"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/2a9c70a5e21f8968c5a46b79f819ea52f322080b",
-                "reference": "2a9c70a5e21f8968c5a46b79f819ea52f322080b",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/b44d128311af55275dbed6a4558ca59a2b9f9387",
+                "reference": "b44d128311af55275dbed6a4558ca59a2b9f9387",
                 "shasum": ""
             },
             "require": {
@@ -1607,20 +1609,18 @@
                 "psr/cache": "^1.0 || ^2.0 || ^3.0"
             },
             "conflict": {
-                "doctrine/annotations": "<1.7 || >=2.0",
                 "doctrine/common": "<2.10"
             },
             "require-dev": {
                 "composer/package-versions-deprecated": "^1.11",
-                "doctrine/annotations": "^1.7",
-                "doctrine/coding-standard": "^10",
+                "doctrine/coding-standard": "^11",
                 "doctrine/common": "^3.0",
-                "phpstan/phpstan": "1.8.8",
+                "phpstan/phpstan": "1.9.4",
                 "phpstan/phpstan-phpunit": "^1",
                 "phpstan/phpstan-strict-rules": "^1.1",
                 "phpunit/phpunit": "^8.5 || ^9.5",
                 "symfony/cache": "^4.4 || ^5.4 || ^6.0",
-                "vimeo/psalm": "4.29.0"
+                "vimeo/psalm": "4.30.0 || 5.3.0"
             },
             "type": "library",
             "autoload": {
@@ -1669,7 +1669,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/3.1.0"
+                "source": "https://github.com/doctrine/persistence/tree/3.1.2"
             },
             "funding": [
                 {
@@ -1685,7 +1685,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-18T14:10:19+00:00"
+            "time": "2022-12-19T13:58:18+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2056,16 +2056,16 @@
         },
         {
             "name": "laminas/laminas-eventmanager",
-            "version": "3.9.0",
+            "version": "3.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-eventmanager.git",
-                "reference": "74c091fb0da37744e7d215ef5bd3564c77f6385e"
+                "reference": "ee23858e56fca8b9c0051087b723840a4b0510b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-eventmanager/zipball/74c091fb0da37744e7d215ef5bd3564c77f6385e",
-                "reference": "74c091fb0da37744e7d215ef5bd3564c77f6385e",
+                "url": "https://api.github.com/repos/laminas/laminas-eventmanager/zipball/ee23858e56fca8b9c0051087b723840a4b0510b0",
+                "reference": "ee23858e56fca8b9c0051087b723840a4b0510b0",
                 "shasum": ""
             },
             "require": {
@@ -2120,20 +2120,20 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-12-10T16:36:52+00:00"
+            "time": "2022-12-20T12:47:44+00:00"
         },
         {
             "name": "laminas/laminas-filter",
-            "version": "2.29.0",
+            "version": "2.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-filter.git",
-                "reference": "166e28123d19ebab7edddb9671a8376143c543c7"
+                "reference": "97e3ce0fa868567aa433ed34d6f57ee703d70d3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-filter/zipball/166e28123d19ebab7edddb9671a8376143c543c7",
-                "reference": "166e28123d19ebab7edddb9671a8376143c543c7",
+                "url": "https://api.github.com/repos/laminas/laminas-filter/zipball/97e3ce0fa868567aa433ed34d6f57ee703d70d3e",
+                "reference": "97e3ce0fa868567aa433ed34d6f57ee703d70d3e",
                 "shasum": ""
             },
             "require": {
@@ -2151,10 +2151,10 @@
                 "laminas/laminas-crypt": "^3.9",
                 "laminas/laminas-uri": "^2.10",
                 "pear/archive_tar": "^1.4.14",
-                "phpunit/phpunit": "^9.5.26",
-                "psalm/plugin-phpunit": "^0.18.3",
+                "phpunit/phpunit": "^9.5.27",
+                "psalm/plugin-phpunit": "^0.18.4",
                 "psr/http-factory": "^1.0.1",
-                "vimeo/psalm": "^5.0"
+                "vimeo/psalm": "^5.3"
             },
             "suggest": {
                 "laminas/laminas-crypt": "Laminas\\Crypt component, for encryption filters",
@@ -2198,7 +2198,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-12-05T13:53:32+00:00"
+            "time": "2022-12-19T17:34:24+00:00"
         },
         {
             "name": "laminas/laminas-form",
@@ -2364,16 +2364,16 @@
         },
         {
             "name": "laminas/laminas-hydrator",
-            "version": "4.10.0",
+            "version": "4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-hydrator.git",
-                "reference": "9917c999faa8acc13da51a9b0d12e513b5d26430"
+                "reference": "acc18274748d58f18259413016eae49f9bb9136c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-hydrator/zipball/9917c999faa8acc13da51a9b0d12e513b5d26430",
-                "reference": "9917c999faa8acc13da51a9b0d12e513b5d26430",
+                "url": "https://api.github.com/repos/laminas/laminas-hydrator/zipball/acc18274748d58f18259413016eae49f9bb9136c",
+                "reference": "acc18274748d58f18259413016eae49f9bb9136c",
                 "shasum": ""
             },
             "require": {
@@ -2437,7 +2437,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-12-05T18:17:44+00:00"
+            "time": "2022-12-14T11:49:03+00:00"
         },
         {
             "name": "laminas/laminas-i18n",
@@ -3308,16 +3308,16 @@
         },
         {
             "name": "laminas/laminas-validator",
-            "version": "2.28.0",
+            "version": "2.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-validator.git",
-                "reference": "695bfa40b0a83dc1c5c58bdf74a03fdbeb516c39"
+                "reference": "e40ee8d86cc1907083e273bfd6ed8b6dde2d9850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/695bfa40b0a83dc1c5c58bdf74a03fdbeb516c39",
-                "reference": "695bfa40b0a83dc1c5c58bdf74a03fdbeb516c39",
+                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/e40ee8d86cc1907083e273bfd6ed8b6dde2d9850",
+                "reference": "e40ee8d86cc1907083e273bfd6ed8b6dde2d9850",
                 "shasum": ""
             },
             "require": {
@@ -3331,17 +3331,17 @@
             },
             "require-dev": {
                 "laminas/laminas-coding-standard": "^2.4.0",
-                "laminas/laminas-db": "^2.15.0",
-                "laminas/laminas-filter": "^2.23.0",
-                "laminas/laminas-http": "^2.17.0",
+                "laminas/laminas-db": "^2.16",
+                "laminas/laminas-filter": "^2.28.1",
+                "laminas/laminas-http": "^2.18",
                 "laminas/laminas-i18n": "^2.19",
-                "laminas/laminas-session": "^2.13.0",
+                "laminas/laminas-session": "^2.15",
                 "laminas/laminas-uri": "^2.10.0",
-                "phpunit/phpunit": "^9.5.25",
-                "psalm/plugin-phpunit": "^0.18.0",
+                "phpunit/phpunit": "^9.5.26",
+                "psalm/plugin-phpunit": "^0.18.3",
                 "psr/http-client": "^1.0.1",
                 "psr/http-factory": "^1.0.1",
-                "vimeo/psalm": "^4.28"
+                "vimeo/psalm": "^5.0"
             },
             "suggest": {
                 "laminas/laminas-db": "Laminas\\Db component, required by the (No)RecordExists validator",
@@ -3389,7 +3389,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-11-14T08:50:44+00:00"
+            "time": "2022-12-13T22:53:38+00:00"
         },
         {
             "name": "laminas/laminas-view",
@@ -3989,23 +3989,23 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.6.0",
+            "version": "4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "ad63bc700e7d021039e30ce464eba384c4a1d40f"
+                "reference": "5ed9ad582647bbc3864ef78db34bdc1afdcf9b49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/ad63bc700e7d021039e30ce464eba384c4a1d40f",
-                "reference": "ad63bc700e7d021039e30ce464eba384c4a1d40f",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/5ed9ad582647bbc3864ef78db34bdc1afdcf9b49",
+                "reference": "5ed9ad582647bbc3864ef78db34bdc1afdcf9b49",
                 "shasum": ""
             },
             "require": {
                 "brick/math": "^0.8.8 || ^0.9 || ^0.10",
                 "ext-json": "*",
                 "php": "^8.0",
-                "ramsey/collection": "^1.0"
+                "ramsey/collection": "^1.2"
             },
             "replace": {
                 "rhumsaa/uuid": "self.version"
@@ -4065,7 +4065,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.6.0"
+                "source": "https://github.com/ramsey/uuid/tree/4.7.0"
             },
             "funding": [
                 {
@@ -4077,7 +4077,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-05T23:03:38+00:00"
+            "time": "2022-12-19T22:30:49+00:00"
         },
         {
             "name": "ramsey/uuid-doctrine",
@@ -4195,16 +4195,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.2.1",
+            "version": "v6.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "58f6cef5dc5f641b7bbdbf8b32b44cc926c35f3f"
+                "reference": "5a9bd5c543f00157c55face973c149957467db31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/58f6cef5dc5f641b7bbdbf8b32b44cc926c35f3f",
-                "reference": "58f6cef5dc5f641b7bbdbf8b32b44cc926c35f3f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/5a9bd5c543f00157c55face973c149957467db31",
+                "reference": "5a9bd5c543f00157c55face973c149957467db31",
                 "shasum": ""
             },
             "require": {
@@ -4271,7 +4271,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.2.1"
+                "source": "https://github.com/symfony/console/tree/v6.2.2"
             },
             "funding": [
                 {
@@ -4287,7 +4287,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-01T13:44:20+00:00"
+            "time": "2022-12-16T15:08:36+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -5009,16 +5009,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.2.0",
+            "version": "v6.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "145702685e0d12f81d755c71127bfff7582fdd36"
+                "reference": "863219fd713fa41cbcd285a79723f94672faff4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/145702685e0d12f81d755c71127bfff7582fdd36",
-                "reference": "145702685e0d12f81d755c71127bfff7582fdd36",
+                "url": "https://api.github.com/repos/symfony/string/zipball/863219fd713fa41cbcd285a79723f94672faff4d",
+                "reference": "863219fd713fa41cbcd285a79723f94672faff4d",
                 "shasum": ""
             },
             "require": {
@@ -5075,7 +5075,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.2.0"
+                "source": "https://github.com/symfony/string/tree/v6.2.2"
             },
             "funding": [
                 {
@@ -5091,7 +5091,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-30T17:13:47+00:00"
+            "time": "2022-12-14T16:11:27+00:00"
         },
         {
             "name": "umpirsky/country-list",

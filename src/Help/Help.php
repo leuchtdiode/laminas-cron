@@ -16,14 +16,16 @@ class Help implements Command
 		$this->command('process', 'Process jobs (should be executed as cron every minute)');
 		$this->command('list', 'List all configured jobs');
 		$this->command('wiki', 'Synchronize job documentation(s) to WIKI');
+		$this->command('monitoring', 'Run monitoring', 1);
 	}
 
-	private function command(string $command, string $description)
+	private function command(string $command, string $description, int $tabs = 2)
 	{
 		Cli::writeLine(
 			sprintf(
-				"%s\t\t%s",
+				"%s%s%s",
 				Cli::bold($command),
+				str_repeat("\t", $tabs),
 				$description
 			)
 		);

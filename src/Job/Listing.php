@@ -59,6 +59,16 @@ class Listing implements Command
 				'Clean up threshold:',
 				sprintf('%s (%s)', $cleanUpThreshold->getMinutes(), $cleanUpThreshold->getHumanReadable())
 			);
+
+			if (($monitoring = $cron->getMonitoring()))
+			{
+				$monitoringThreshold = $monitoring->getThreshold();
+
+				$this->labeledInfo(
+					'Monitoring:',
+					sprintf('%s (%s)', $monitoringThreshold->getMinutes(), $monitoringThreshold->getHumanReadable())
+				);
+			}
 		}
 	}
 

@@ -5,21 +5,23 @@ namespace Cron;
 
 use Cron\Execution\Plan;
 use Cron\Execution\Threshold;
+use Cron\Monitoring\Monitoring;
 use Cron\Wiki\Job;
 
 class Cron
 {
 	const DEFAULT_TIMEOUT = 60;
 
-	private ?string   $description = null;
-	private int       $timeout     = self::DEFAULT_TIMEOUT;
-	private bool      $enabled;
-	private Plan      $executionPlan;
-	private string    $command;
-	private ?string   $author      = null;
-	private ?string   $escalation  = null;
-	private Threshold $cleanUpThreshold;
-	private ?Job      $wiki        = null;
+	private ?string     $description = null;
+	private int         $timeout     = self::DEFAULT_TIMEOUT;
+	private bool        $enabled;
+	private Plan        $executionPlan;
+	private string      $command;
+	private ?string     $author      = null;
+	private ?string     $escalation  = null;
+	private Threshold   $cleanUpThreshold;
+	private ?Job        $wiki        = null;
+	private ?Monitoring $monitoring  = null;
 
 	/**
 	 * @var string[]
@@ -44,6 +46,7 @@ class Cron
 			'escalation'       => $this->escalation,
 			'cleanUpThreshold' => $this->cleanUpThreshold->asArray(),
 			'wiki'             => $this->wiki?->asArray(),
+			'monitoring'       => $this->monitoring?->asArray(),
 		];
 	}
 
@@ -66,6 +69,11 @@ class Cron
 			->setWiki(
 				($wiki = $data['wiki'] ?? null)
 					? Job::fromArray($wiki)
+					: null
+			)
+			->setMonitoring(
+				($monitoring = $data['monitoring'] ?? null)
+					? Monitoring::fromArray($monitoring)
 					: null
 			);
 	}
@@ -189,6 +197,17 @@ class Cron
 	public function setWiki(?Job $wiki): Cron
 	{
 		$this->wiki = $wiki;
+		return $this;
+	}
+
+	public function getMonitoring(): ?Monitoring
+	{
+		return $this->monitoring;
+	}
+
+	public function setMonitoring(?Monitoring $monitoring): Cron
+	{
+		$this->monitoring = $monitoring;
 		return $this;
 	}
 }

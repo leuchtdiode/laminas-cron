@@ -83,6 +83,21 @@ class Synchronize implements Command
 				$cleanUpThreshold->getHumanReadable()
 			);
 
+			if (($monitoring = $cron->getMonitoring()))
+			{
+				$monitoringThreshold = $monitoring->getThreshold();
+
+				$text .= sprintf(
+					"|Monitoring |%s (%s) |\n",
+					$monitoringThreshold->getMinutes(),
+					$monitoringThreshold->getHumanReadable()
+				);
+			}
+			else
+			{
+				$text .= "|Monitoring |- |\n";
+			}
+
 			foreach (($wiki?->getParagraphs() ?? []) as $paragraph)
 			{
 				$text .= sprintf("===== %s =====\n\n", $paragraph->getTitle());

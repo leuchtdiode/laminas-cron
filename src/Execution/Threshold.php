@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace Cron\Execution;
+
 class Threshold
 {
 	private int    $minutes;
