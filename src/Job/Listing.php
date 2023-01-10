@@ -6,6 +6,7 @@ namespace Cron\Job;
 use Cron\Command;
 use Cron\Common\Cli;
 use Cron\Cron;
+use Cron\ExecutionParams;
 
 class Listing implements Command
 {
@@ -15,7 +16,7 @@ class Listing implements Command
 	{
 	}
 
-	public function execute(): void
+	public function execute(ExecutionParams $params): void
 	{
 		$cronConfig = $this->config['cron'];
 
