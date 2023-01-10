@@ -9,6 +9,7 @@ use Cron\Cron;
 use Cron\Db\Execution\Filter as ExecutionDbFilter;
 use Cron\Db\Execution\Repository;
 use Cron\Execution\Status;
+use Cron\ExecutionParams;
 use Cron\Host;
 use Exception;
 use DateTime;
@@ -27,7 +28,7 @@ class Process implements Command
 	{
 	}
 
-	public function execute(): void
+	public function execute(ExecutionParams $params): void
 	{
 		$cronConfig       = $this->config['cron'];
 		$monitoringConfig = $cronConfig['monitoring'] ?? null;

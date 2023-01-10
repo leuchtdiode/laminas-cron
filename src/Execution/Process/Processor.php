@@ -12,18 +12,20 @@ use Cron\Db\Execution\Entity as ExecutionEntity;
 use Cron\Db\Execution\Repository;
 use Cron\Db\Execution\Filter as ExecutionDbFilter;
 use Cron\Execution\Cleaner;
+use Cron\Execution\ExecuteProcess;
 use Cron\Execution\Status;
+use Cron\ExecutionParams;
 use Cron\Host;
 use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
-use Exception;
-use Generator;
 use function Amp\Promise\all;
 
 class Processor implements Command
 {
+	use ExecuteProcess;
+
 	public function __construct(
 		private readonly array $config,
 		private readonly Repository $repository,
@@ -38,7 +40,7 @@ class Processor implements Command
 	 * @throws NoResultException
 	 * @throws NonUniqueResultException
 	 */
-	public function execute(): void
+	public function execute(ExecutionParams $params): void
 	{
 		$cronConfig = $this->config['cron'] ?? [];
 
@@ -119,29 +121,6 @@ class Processor implements Command
 		if ($shouldCleanUp)
 		{
 			$this->cleaner->clean();
-		}
-	}
-
-	private function executeProcess(ProcessBag $processBag): Generator
-	{
-		$process = $processBag->getProcess();
-
-		yield $process->start();
-
-		$exitCode = yield $process->join();
-
-		$entity = $processBag->getEntity();
-		$entity->setStatus(Status::FINISHED);
-		$entity->setEndTime(new DateTime());
-		$entity->setExitCode($exitCode);
-
-		try
-		{
-			$this->entityManager->flush($entity);
-		}
-		catch (Exception $ex)
-		{
-			error_log($ex->getMessage());
 		}
 	}
 }

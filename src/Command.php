@@ -5,5 +5,5 @@ namespace Cron;
 
 interface Command
 {
-	public function execute(): void;
+	public function execute(ExecutionParams $params): void;
 }

@@ -3,10 +3,12 @@
 
 use Cron\Command;
 use Cron\Execution\Process\Processor;
+use Cron\Execution\Trigger;
+use Cron\ExecutionParams;
 use Cron\Help\Help;
 use Cron\Job\Listing as JobListing;
-use Cron\Wiki\Synchronize as WikiSynchronize;
 use Cron\Monitoring\Process as Monitoring;
+use Cron\Wiki\Synchronize as WikiSynchronize;
 use Laminas\Mvc\Application as LaminasApplication;
 use Laminas\Stdlib\ArrayUtils;
 
@@ -44,6 +46,7 @@ const COMMANDS = [
 	'list'       => JobListing::class,
 	'wiki'       => WikiSynchronize::class,
 	'monitoring' => Monitoring::class,
+	'trigger'    => Trigger::class,
 ];
 
 if (!($commandExecutor = COMMANDS[$command] ?? null))
@@ -58,7 +61,12 @@ try
 	 */
 	$executor = $container->get($commandExecutor);
 
-	$executor->execute();
+	$executor->execute(
+		ExecutionParams::create()
+			->setArguments(
+				array_splice($argv, 2)
+			)
+	);
 
 	exit(0);
 }

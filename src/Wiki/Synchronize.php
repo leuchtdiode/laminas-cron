@@ -5,6 +5,7 @@ namespace Cron\Wiki;
 
 use Cron\Command;
 use Cron\Cron;
+use Cron\ExecutionParams;
 use Cron\Host;
 use Exception;
 
@@ -18,7 +19,7 @@ class Synchronize implements Command
 	{
 	}
 
-	public function execute(): void
+	public function execute(ExecutionParams $params): void
 	{
 		$cronConfig = $this->config['cron'];
 		$wikiConfig = $cronConfig['wiki'] ?? null;
