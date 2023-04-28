@@ -19,7 +19,7 @@ class ClientFactory implements FactoryInterface
 	 * @throws ContainerExceptionInterface
 	 * @throws NotFoundExceptionInterface
 	 */
-	public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
+	public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): Client
 	{
 		$config = $container->get('config')['cron']['wiki'];
 

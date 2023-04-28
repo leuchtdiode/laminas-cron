@@ -16,6 +16,7 @@ use DateTime;
 use Notification\Notify\NotificationData;
 use Notification\Notify\Notifier;
 use Psr\Container\ContainerInterface;
+use Throwable;
 
 class Process implements Command
 {
@@ -28,6 +29,9 @@ class Process implements Command
 	{
 	}
 
+	/**
+	 * @throws Throwable
+	 */
 	public function execute(ExecutionParams $params): void
 	{
 		$cronConfig       = $this->config['cron'];

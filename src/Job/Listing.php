@@ -93,7 +93,7 @@ class Listing implements Command
 		return Cli::colorRed('no');
 	}
 
-	private function labeledInfo(string $command, string $description)
+	private function labeledInfo(string $command, string $description): void
 	{
 		Cli::writeLine(
 			sprintf(

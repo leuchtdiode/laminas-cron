@@ -8,6 +8,7 @@ use Cron\Cron;
 use Cron\ExecutionParams;
 use Cron\Host;
 use Exception;
+use Throwable;
 
 class Synchronize implements Command
 {
@@ -19,6 +20,9 @@ class Synchronize implements Command
 	{
 	}
 
+	/**
+	 * @throws Throwable
+	 */
 	public function execute(ExecutionParams $params): void
 	{
 		$cronConfig = $this->config['cron'];
@@ -56,7 +60,7 @@ class Synchronize implements Command
 				continue;
 			}
 
-			$text = sprintf("====== Task " . $key . " (" . $host . ")======\n\n");
+			$text = sprintf("====== Task %s (%s)======\n\n", $key, $host);
 
 			$id = $namespace . ':' . $key;
 
@@ -146,7 +150,7 @@ class Synchronize implements Command
 
 			if ($putPageResponse !== true)
 			{
-				throw new Exception('Could not remove WIKI page "' . $id . '"');
+				throw new Exception('Could not remove WIKI page "' . $pageId . '"');
 			}
 		}
 	}

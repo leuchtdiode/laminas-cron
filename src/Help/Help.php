@@ -21,7 +21,7 @@ class Help implements Command
 		$this->command('trigger', 'Trigger job manually (first argument must be the job name)');
 	}
 
-	private function command(string $command, string $description, int $tabs = 2)
+	private function command(string $command, string $description, int $tabs = 2): void
 	{
 		Cli::writeLine(
 			sprintf(
